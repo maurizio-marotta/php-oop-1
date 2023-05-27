@@ -9,6 +9,9 @@
       $this->title = $_title;
       $this->time = $_time;
       $this->image = $_image;
-
     }
+    public function getInfo(){
+      return 'titolo:' . $this->title . ' durata: ' . $this->time . ' minuti';
+    } 
+
   }
