@@ -2,11 +2,11 @@
 
   require_once  __DIR__ . '/movie.php';
 
-  $shrek = new movie('shrek', 130, 'https://www.repstatic.it/content/nazionale/img/2023/04/05/113551482-a91e74f2-96a1-4f2a-b3ad-26ed8c5cf765.jpg');
-  
-  $spiderman = new movie('spiderman', 201, 'https://mr.comingsoon.it/imgdb/locandine/big/1058.jpg');
-  var_dump($shrek->getInfo());
-  var_dump($spiderman->getInfo());
+  $movies = [
+    new movie('shrek', 130, 'https://www.repstatic.it/content/nazionale/img/2023/04/05/113551482-a91e74f2-96a1-4f2a-b3ad-26ed8c5cf765.jpg'),
+
+    new movie('spiderman', 201, 'https://mr.comingsoon.it/imgdb/locandine/big/1058.jpg'),
+  ]
 
 ?>
 <!DOCTYPE html>
@@ -19,21 +19,22 @@
   <title>movie</title>
 </head>
 <body>
-  <h1 class="text-center">Film</h1>
-  <div class="container-bottom">
+  <h1 class="text-center">Film</h1>  
     <div class="container">
       <div class="row row-cols-2">
+        <?php foreach($movies as $movie): ?>
         <div class="col">
           <div class="card" style="width: 18rem;">
-            <img src="https://mr.comingsoon.it/imgdb/locandine/big/1058.jpg" class="card-img-top" alt="...">
+            <img src="<?php echo $movie->getImage() ?>" class="card-img-top" alt="...">
             <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">durata:130</p>
+            <h5 class="card-title"><?php echo $movie->getTitle() ?></h5>
+            <p class="card-text">Durata: <?php echo $movie->getTime()?> minuti</p>
             </div>
         </div>
+        <?php endforeach; ?>
       </div>
     </div>
-  </div>
+
 
 
 

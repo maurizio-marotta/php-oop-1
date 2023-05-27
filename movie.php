@@ -14,4 +14,16 @@
       return 'titolo:' . $this->title . ' durata: ' . $this->time . ' minuti';
     } 
 
+    public function getImage(){
+      echo $this->image;
+    } 
+
+    public function getTitle(){
+      echo $this->title;
+    }
+
+    
+    public function getTime(){
+      echo $this->time;
+    }
   }
